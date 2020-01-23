@@ -22,10 +22,11 @@ public class TestVendor {
 
         Thread.sleep(40000);
         WebElement scrollArea2 = driver.findElement(By.cssSelector("#kt_aside_menu > div.ps__rail-y"));
-        singletonConfig.scrollSideMenu(scrollArea2 ,30);
+        singletonConfig.scrollSideMenu(scrollArea2 ,20);
 
         WebDriverWait wait = new WebDriverWait(driver, 30);
 
+        Thread.sleep(20000);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"kt_aside_menu\"]/ul/li[14]"))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"menuVendor\"]"))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"btnAddVendor\"]"))).click();
@@ -34,7 +35,7 @@ public class TestVendor {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"select2-VendorCategory-results\"]/li[text()='Suppliers']"))).click();
 
         String vendorName = "Kemsa Ltd";
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"VendorName\"]"))).sendKeys(vendorName);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"VendorName\"]"))).sendKeys("Kemsa Ltd");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"VendorPhysicalAddress\"]"))).sendKeys("Capetown");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"VendorPostalAddress\"]"))).sendKeys("999");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"VendorTown\"]"))).sendKeys("CBD");

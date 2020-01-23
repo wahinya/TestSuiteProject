@@ -7,15 +7,18 @@ import org.testng.annotations.Test;
 
 public class TestPurchaseOrder {
     private SingletonConfig singletonConfig = SingletonConfig.getInstance();
-    private WebDriver driver;
+    public  WebDriver driver = singletonConfig.getDriver();
+    TestLogin testLogin = new TestLogin();
 
     @Test(priority=1)
     public void purchaseOrder() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 30);
 
+        testLogin.login();
+        Thread.sleep(40000);
 
         WebElement scrollArea1 = driver.findElement(By.cssSelector("#kt_aside_menu > div.ps__rail-y"));
-        singletonConfig.scrollSideMenu(scrollArea1 ,20);
+        singletonConfig.scrollSideMenu(scrollArea1 ,30);
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"menuPurchaseOrder\"]"))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"btnAddPurchaseOrder\"]"))).click();
@@ -26,7 +29,7 @@ public class TestPurchaseOrder {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"select2-purchaseOrderSupplier-container\"]"))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/span/span/span[1]/input"))).sendKeys("Kemsa Ltd");
         Thread.sleep(1000);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"select2-purchaseOrderSupplier-results\"]/li[text()='Panamedic Ltd5']"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"select2-purchaseOrderSupplier-results\"]/li[text()='Kemsa Ltd']"))).click();
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"select2-purchaseOrderStore-container\"]"))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"select2-purchaseOrderStore-results\"]/li[text()='Main Store']"))).click();

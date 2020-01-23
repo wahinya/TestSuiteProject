@@ -9,7 +9,7 @@ public class TestCustomer {
     private SingletonConfig singletonConfig = SingletonConfig.getInstance();
     public  WebDriver driver = singletonConfig.getDriver();
     private TestLogin testLogin = new TestLogin();
-    String customerName = "American Insurance2";
+    String customerName = "American Insurance3";
 
     @Test(priority = 9, description = "add a new customer, assuming you have a customer category defined")
     public void addCustomer() throws InterruptedException {

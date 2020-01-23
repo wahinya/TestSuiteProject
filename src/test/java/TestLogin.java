@@ -8,9 +8,6 @@ import org.testng.annotations.Test;
 public class TestLogin {
     SingletonConfig singletonConfig = SingletonConfig.getInstance();
     public  WebDriver driver = singletonConfig.getDriver();
-    public String firstName = "Seach";
-    public String surName = "D16";
-
 
     @Test(priority=1, description = "handles access before any functional testing ")
     public void login(){

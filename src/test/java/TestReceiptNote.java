@@ -13,6 +13,7 @@ public class TestReceiptNote {
 
     @Test(priority= 12)
     public void receiptNote() throws InterruptedException {
+        testLogin.login();
         Thread.sleep(40000);
         WebDriverWait wait = new WebDriverWait(driver, 30);
 
