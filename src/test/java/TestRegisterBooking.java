@@ -7,8 +7,8 @@ import org.testng.annotations.Test;
 public class TestRegisterBooking {
     private SingletonConfig singletonConfig = SingletonConfig.getInstance();
     private  WebDriver driver = singletonConfig.getDriver();
-    private String firstName;
-    private String surName;
+    private String firstName="Jomo";
+    private String surName="Kenyatta";
 
     public TestRegisterBooking() {
     }
@@ -66,7 +66,7 @@ public class TestRegisterBooking {
         name.sendKeys(firstName);
 
         WebElement middleName= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"patientMiddleName\"]")));
-        middleName.sendKeys("Test");
+        middleName.sendKeys("");
 
         WebElement surName1=  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"patientLastName\"]")));
         surName1.sendKeys(surName);
@@ -190,13 +190,15 @@ public class TestRegisterBooking {
 
 }
 
-    @Test(priority = 8, description="adding an optional bill e.g consultation")
+    @Test(priority = 3, description="adding an optional bill e.g consultation")
     public void addBill() throws InterruptedException {
         wait = new WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"select2-WorkSpaceRequestProduct-container\"]"))).click();
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div/div[2]/div[2]/div[1]/div/div[1]/div/div/div[2]/div[1]/form/div/div/div[1]/div[1]/div/div[2]/span[2]/span[1]/span"))).click();
+
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/span/span/span[1]/input"))).sendKeys("Consultation");
             Thread.sleep(3000);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"select2-WorkSpaceRequestProduct-results\"]/li[1]"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/span/span/span[2]/ul/li[1]"))).click();
         Thread.sleep(5000);
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"btnSaveRequestWorkSpace\"]"))).click();

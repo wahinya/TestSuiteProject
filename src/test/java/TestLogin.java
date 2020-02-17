@@ -13,15 +13,15 @@ public class TestLogin {
     public void login(){
         WebDriverWait wait = new WebDriverWait(driver, 30);
 
-        WebElement username = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div/div/div[2]/div/div/form/div[1]/input")));
+        WebElement username = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"loginUsername\"]")));
         String user = "duncan@sycomafrica.com";
         username.sendKeys(user);
 
-        WebElement password = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div/div/div[2]/div/div/form/div[2]/input")));
+        WebElement password = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"loginPassword\"]")));
         String pass = "d@nsyh0s";
         password.sendKeys(pass);
 
-        WebElement loginButton= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div/div/div[2]/div/div/form/div[3]/button")));
+        WebElement loginButton= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"kt_login_signin_submit\"]")));
         loginButton.click();
     }
 

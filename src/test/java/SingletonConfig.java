@@ -41,7 +41,7 @@ public class SingletonConfig {
                         numberOfPixelsToDragTheScrollbarDown).release(webelement).build().perform();
             }
             Thread.sleep(500);
-            System.out.println("---------------- scrolling down to vendors module link ----------------");
+            System.out.println("---------------- scrolling down -  ending ----------------");
             return true;
         }
         catch (Exception e)
