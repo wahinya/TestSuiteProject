@@ -10,6 +10,8 @@ public class AsignLeave {
     private WebDriver driver = singletonConfig.getDriver();
     private TestLogin testLogin = new TestLogin();
 
+    // This class connects to an interviewers portal
+    // Ignore the methods for now
 
     @Test(priority= 2)
     public void assignleave() throws InterruptedException{
